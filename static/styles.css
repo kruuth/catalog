@@ -212,3 +212,9 @@ h4 {
 	font-weight: 400;
 	margin-top: -20px;
 }
+input:invalid{
+	border: 3px solid red;
+}
+input:valid{
+	border: 1px solid black;
+}

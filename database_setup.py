@@ -64,5 +64,6 @@ class Item(Base):
         }
 
 
-engine = create_engine('sqlite:///vgcatalog.db')
+#engine = create_engine('sqlite:///vgcatalog.db')
+engine = create_engine('postgresql://catalog:catalog@localhost/vgcatalog')
 Base.metadata.create_all(engine)

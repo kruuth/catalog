@@ -16,8 +16,10 @@ from flask import make_response
 
 app = Flask(__name__)
 
+APP_PATH = '/var/www/catalog/catalog/'
 # FIrst we create a database session
-engine = create_engine('sqlite:///vgcatalog.db')
+engine = create_engine('postgresql://catalog:catalog@localhost/vgcatalog')
+#engine = create_engine('sqlite:///vgcatalog.db')
 Base.metadata.bind = engine
 
 DBSession = sessionmaker(bind=engine)
@@ -25,7 +27,7 @@ session = DBSession()
 
 # Now we read in the google info from the local file
 CLIENT_ID = json.loads(
-    open('client_secrets.json', 'r').read())['web']['client_id']
+    open(APP_PATH + 'client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "ItemCatalog"
 
 
